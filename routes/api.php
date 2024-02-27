@@ -38,6 +38,7 @@ Route::group(['middleware' => 'cors'], function () {
 
 Route::apiResource('genres', GenreController::class);
 Route::apiResource('movies', MovieController::class);
+Route::get('movie-ratings/{id}', [MovieController::class,'movieRatings']);
 Route::apiResource('ratings', RatingController::class)->except([
     'store', 'update', 'destroy'
 ]);

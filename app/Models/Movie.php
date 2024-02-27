@@ -26,9 +26,21 @@ class Movie extends Model
     {
         return $this->belongsTo(Genre::class);
     }
-    
+
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function getAverageRating()
+    {
+        $totalRatings = $this->ratings->count();
+        $sumOfRatings = $this->ratings->sum('rating');
+
+        if ($totalRatings > 0) {
+            return $sumOfRatings / $totalRatings;
+        } else {
+            return 0;
+        }
     }
 }

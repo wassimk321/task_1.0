@@ -56,4 +56,12 @@ class MovieService
 
         return true;
     }
+
+    public function movieRatings($movieId)
+    {
+        $movie = Movie::findOrFail($movieId);
+        $averageRating = $movie->getAverageRating();
+        return $averageRating;
+    }
+
 }

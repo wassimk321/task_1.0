@@ -64,4 +64,14 @@ class MovieController extends Controller
             'dataDeletedSuccessfully'
         );
     }
+    public function movieRatings($movieId)
+    {
+        //Determine the rating of a movie by using all ratings of all users.
+        $averageRating = $this->movieService->movieRatings($movieId);
+        $data = ['avg_rating' => $averageRating];
+        return $this->successResponse(
+            $data,
+            'dataFetchedSuccessfully'
+        );
+    }
 }
