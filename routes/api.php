@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,6 @@ Route::group(['middleware' => 'cors'], function () {
 
 Route::apiResource('genres', GenreController::class);
 Route::apiResource('movies', MovieController::class);
+Route::apiResource('ratings', RatingController::class)->except([
+    'store', 'update', 'destroy'
+]);
