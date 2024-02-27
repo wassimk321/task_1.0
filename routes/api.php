@@ -1,33 +1,7 @@
 <?php
 
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\AreaController;
-use App\Http\Controllers\AttributeController;
-use App\Http\Controllers\AttributeValueController;
 use App\Http\Controllers\Auth\UserAuthController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CityController;
-use App\Http\Controllers\CommissionController;
-use App\Http\Controllers\DeliveryAttributeController;
-use App\Http\Controllers\DeliveryMethodController;
-use App\Http\Controllers\DeliveryTimeInfoController;
-use App\Http\Controllers\DriverController;
-use App\Http\Controllers\FavoritController;
-use App\Http\Controllers\FixedAttributesController;
-use App\Http\Controllers\GiftController;
-use App\Http\Controllers\HomePageController;
-use App\Http\Controllers\ModelListController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PaymentMethodController;
-use App\Http\Controllers\PaymentProcessController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SellerController;
-use App\Http\Controllers\StateController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\UserAddressController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +32,4 @@ Route::group(['middleware' => 'cors'], function () {
     Route::apiResource('users', UserController::class);
 });
 
+Route::apiResource('genres', GenreController::class);
