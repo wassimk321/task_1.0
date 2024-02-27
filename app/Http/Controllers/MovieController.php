@@ -14,6 +14,8 @@ class MovieController extends Controller
 
     public function index()
     {
+        // get all the movies in json format
+        // using GET request /api/movies
         $movies = $this->movieService->getAll();
         return $this->successResponse(
             $this->resource($movies, MovieResource::class),
