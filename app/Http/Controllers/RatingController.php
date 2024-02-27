@@ -33,11 +33,12 @@ class RatingController extends Controller
 
     public function store(RatingRequest $request)
     {
+        //Create a rating for a movie for a given user
         $validatedData = $request->validated();
-        $rating = $this->ratingService->create($validatedData);
+        $this->ratingService->create($validatedData);
 
         return $this->successResponse(
-            $this->resource($rating, RatingResource::class),
+             [],
             'dataAddedSuccessfully'
         );
     }

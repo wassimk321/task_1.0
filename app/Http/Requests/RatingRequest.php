@@ -33,10 +33,9 @@ class RatingRequest extends FormRequest
     public function getCreateRules()
     {
           return [
-            'user_id' => 'required|',
+            'user_id' => 'nullable|',
             'movie_id' => 'required|',
-            'rating' => 'required|integer',
-
+            'rating' => 'required|integer|between:1,10',
           ];
     }
 

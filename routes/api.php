@@ -22,11 +22,13 @@ Route::group(['middleware' => 'cors'], function () {
     Route::group([
         'prefix' => '/auth',
     ], function () {
+        //
         Route::post('/login', [UserAuthController::class, 'login']);
         Route::post('/generate-otp', [UserAuthController::class, 'generateOTP']);
         Route::post('/verify-otp', [UserAuthController::class, 'verifyOTP']);
         Route::post('/change-password', [UserAuthController::class, 'changePassword']);
         Route::group(['middleware' => 'auth:user'], function () {
+            Route::post('/rate-movie', [RatingController::class, 'store']);
             Route::get('/profile-details', [UserAuthController::class, 'getProfileDetails']);
             Route::post('/logout', [UserAuthController::class, 'logout']);
         });
