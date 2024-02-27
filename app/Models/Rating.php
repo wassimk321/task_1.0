@@ -18,11 +18,19 @@ class Rating extends Model
     ];
 
     protected $casts = [
-       'user_id' => 'string',
-       'movie_id' => 'string',
-       'rating' => 'integer',
+        'user_id' => 'string',
+        'movie_id' => 'string',
+        'rating' => 'integer',
 
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function movie()
+    {
+        return $this->belongsTo(Movie::class);
+    }
 }
